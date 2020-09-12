@@ -1,6 +1,6 @@
 
 
-const API_URL = "http://localhost:5000/videos";
+const API_URL = "http://localhost:5000/vids";
 
 
 const form = document.querySelector('form');
@@ -18,6 +18,16 @@ form.addEventListener('submit', (event)=>{
         videoLink
     };
 
-    console.log(vid);
+    fetch(API_URL,{
+        method : 'POST', 
+        body : JSON.stringify(vid),
+        headers: {
+            'content-type' : 'application/json'
+        }
+    }).then(response => response.json())
+      .then(createdVid => {
+          console.log(createdVid);
+          form.reset();
+      }) 
 
 });
