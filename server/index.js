@@ -26,14 +26,12 @@ app.get('/vids', (req, res)=>{
         });
 });
 
-
-
 app.post('/vids', (req, res) => {
     if(true){
         //insert into db
         const vid = { //preventing injecton, makes things more secure, good to have on both sides
             userName : req.body.userName.toString(),
-            videoLInk: req.body.videoLink.toString(),  
+            videoLink: req.body.videoLink.toString(),  
         }
 
         vids
